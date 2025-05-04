@@ -1,9 +1,22 @@
+import { useContext } from 'react';
 import Header from '../../Components/Header';
 import SearchForm from '../../Components/SearchForm';
 import Summary from '../../Components/Summary';
 import { PriceHighlight, TransactionContainer, TransactionsTable } from './styles';
+import { TransactionsContext } from '../../contexts/TransactionsContext';
+
+interface Transaction {
+  id: number;
+  description: string;
+  type: 'income' | 'outcome';
+  price: number;
+  category: string;
+  createdAt: string;
+}
 
 const Transaction = () => {
+  const { transactions } = useContext(TransactionsContext);
+
   return (
     <div>
       <Header />
@@ -12,38 +25,19 @@ const Transaction = () => {
         <SearchForm />
         <TransactionsTable>
           <tbody>
-            <tr>
-              <td width="50%">Site Development</td>
-              <td>
-                <PriceHighlight variant="income">R$ 12.000,00</PriceHighlight>
-              </td>
-              <td>Sale</td>
-              <td>13/04/2022</td>
-            </tr>
-            <tr>
-              <td>Hamburguer</td>
-              <td>
-                <PriceHighlight variant="outcome">- R$ 59,00</PriceHighlight>
-              </td>
-              <td>Feeding</td>
-              <td>13/04/2022</td>
-            </tr>
-            <tr>
-              <td>Salary</td>
-              <td>
-                <PriceHighlight variant="income">- R$ 6.000,00</PriceHighlight>
-              </td>
-              <td>Others</td>
-              <td>13/04/2022</td>
-            </tr>
-            <tr>
-              <td>Rent</td>
-              <td>
-                <PriceHighlight variant="outcome">- R$ 1.200,00</PriceHighlight>
-              </td>
-              <td>Others</td>
-              <td>13/04/2022</td>
-            </tr>
+            {transactions.map((transaction) => (
+              <tr key={transaction.id}>
+                <td width="50%">{transaction.description}</td>
+                <td>
+                  <PriceHighlight variant={transaction.type}>
+                    {transaction.type === 'outcome' && '- '}
+                    R$ {transaction.price.toFixed(2).replace('.', ',')}
+                  </PriceHighlight>
+                </td>
+                <td>{transaction.category}</td>
+                <td>{new Date(transaction.createdAt).toLocaleDateString()}</td>
+              </tr>
+            ))}
           </tbody>
         </TransactionsTable>
       </TransactionContainer>

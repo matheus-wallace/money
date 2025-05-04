@@ -1,0 +1,44 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "description": "Site Development",
+      "type": "income",
+      "category": "Work",
+      "price": 559.0,
+      "createdAt": "2025-01-15T16:28:54.546Z"
+    },
+    {
+      "id": 2,
+      "description": "Hamburguer",
+      "type": "outcome",
+      "category": "Food",
+      "price": 59.0,
+      "createdAt": "2025-05-04T16:28:54.546Z"
+    },
+    {
+      "id": 3,
+      "description": "rent",
+      "type": "outcome",
+      "category": "Others",
+      "price": 5221,
+      "createdAt": "2025-05-04T16:28:54.546Z"
+    },
+    {
+      "id": 4,
+      "description": "Mousepad",
+      "type": "outcome",
+      "category": "Sale",
+      "price": 5221,
+      "createdAt": "2025-12-04T16:28:54.546Z"
+    },
+    {
+      "id": 5,
+      "description": "Coockie",
+      "type": "outcome",
+      "category": "Sale",
+      "price": 5221,
+      "createdAt": "2025-04-25T16:28:54.546Z"
+    }
+  ]
+}
