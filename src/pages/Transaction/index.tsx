@@ -4,6 +4,7 @@ import SearchForm from '../../Components/SearchForm';
 import Summary from '../../Components/Summary';
 import { PriceHighlight, TransactionContainer, TransactionsTable } from './styles';
 import { TransactionsContext } from '../../contexts/TransactionsContext';
+import { dateFormatter, priceFormatter } from '../../utils/formater';
 
 interface Transaction {
   id: number;
@@ -31,11 +32,11 @@ const Transaction = () => {
                 <td>
                   <PriceHighlight variant={transaction.type}>
                     {transaction.type === 'outcome' && '- '}
-                    R$ {transaction.price.toFixed(2).replace('.', ',')}
+                    {priceFormatter.format(transaction.price)}
                   </PriceHighlight>
                 </td>
                 <td>{transaction.category}</td>
-                <td>{new Date(transaction.createdAt).toLocaleDateString()}</td>
+                <td>{dateFormatter.format(new Date(transaction.createdAt))}</td>
               </tr>
             ))}
           </tbody>
