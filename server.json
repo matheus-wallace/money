@@ -47,6 +47,30 @@
       "type": "outcome",
       "createdAt": "2022-07-30T13:38:57.560Z",
       "id": 6
+    },
+    {
+      "description": "Primeiro teste",
+      "price": 1200,
+      "category": "Carro",
+      "type": "income",
+      "createdAt": "2025-05-05T23:30:13.279Z",
+      "id": 7
+    },
+    {
+      "description": "Segundo teste",
+      "price": 1200,
+      "category": "Moto",
+      "type": "outcome",
+      "createdAt": "2025-05-05T23:30:41.565Z",
+      "id": 8
+    },
+    {
+      "description": "Deu certo?",
+      "price": 30,
+      "category": "Alimentação",
+      "type": "outcome",
+      "createdAt": "2025-05-05T23:44:02.763Z",
+      "id": 9
     }
   ]
 }
